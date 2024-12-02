@@ -6,7 +6,6 @@ puts %w(
   C++
   Go
   C
-  Rust
   PHP
   Lua
   Kotlin
@@ -18,4 +17,9 @@ puts %w(
   Elixir
   F#
   Gleam
+  Crystal
+  Vala
+  Nim
+  Perl
+  VisualBasic
 ).sample
