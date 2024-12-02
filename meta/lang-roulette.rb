@@ -2,10 +2,8 @@
 
 puts %w(
   Python
-  Java
   JavaScript
   C++
-  C#
   Go
   C
   Rust
