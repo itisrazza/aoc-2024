@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Full Input" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="Program" />
+    <module name="day-1.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,7 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Program {
@@ -15,11 +15,10 @@ public class Program {
         }
 
         readLists(filename);
-        leftList.sort(Integer::compareTo);
-        rightList.sort(Integer::compareTo);
 
         var distances = calculateDistances();
-        System.out.printf("Total Distance: %d", distances.stream().reduce(0, Integer::sum));
+        System.out.printf("Total Distance: %d\n", distances.stream().reduce(0, Integer::sum));
+        System.out.printf("Similarity Score: %d\n", calculateSimilarityScore());
     }
 
     private static void readLists(String filename) throws FileNotFoundException {
@@ -31,11 +30,28 @@ public class Program {
     }
 
     private static ArrayList<Integer> calculateDistances() {
-        var distances = new ArrayList<Integer>(leftList.size());
-        for (var i = 0; i < leftList.size(); i++) {
-            distances.add(Math.abs( leftList.get(i) - rightList.get(i)));
+        var leftSorted = leftList.stream().sorted().toList();
+        var rightSorted = rightList.stream().sorted().toList();
+
+        var distances = new ArrayList<Integer>(leftSorted.size());
+        for (var i = 0; i < leftSorted.size(); i++) {
+            distances.add(Math.abs( leftSorted.get(i) - rightSorted.get(i)));
         }
 
         return distances;
+    }
+
+    private static Integer calculateSimilarityScore() {
+        var map = new HashMap<Integer, Integer>();
+        for (var num : rightList) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        var score = 0;
+        for (var num : leftList) {
+            score += num * map.getOrDefault(num, 0);
+        }
+
+        return score;
     }
 }
