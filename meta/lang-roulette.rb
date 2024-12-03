@@ -4,7 +4,6 @@ puts %w(
   Python
   JavaScript
   C++
-  Go
   C
   PHP
   Lua
