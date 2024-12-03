@@ -6,4 +6,4 @@ Advent of Code for 2024. A good excuse to try use different languages.
 |----:|--------------------|----------|
 |   1 | Historian Hysteria | Java     |
 |   2 | Red-Nosed Reports  | C#       |
-|   3 | TBC                | Rust     |
+|   3 | Mull It Over       | Rust     |
